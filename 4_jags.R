@@ -32,9 +32,9 @@ y = c(1.2, 1.4, -0.5, 0.3, 0.9, 2.3, 1.0, 0.1, 1.3, 1.9) # given sample
 n = length(y)
 
 data_jags = list(y=y, n=n) # data supplied to JAGS model, in the form of a list
-params = c("mu")           # parameter specified for the JAGS model
+params = c("mu")           # parameter to be observed
 
-# function to initialise the parameters - optional (and fixed)
+# initialise values - optional (and fixed)
 inits = function() {
   inits = list("mu"=0.0)
 } 
