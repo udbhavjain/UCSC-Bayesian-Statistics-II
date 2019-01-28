@@ -54,5 +54,4 @@ summary(mod_sim)
 
 # plot the Markov chain
 library("coda")
-x11()
 plot(mod_sim)
