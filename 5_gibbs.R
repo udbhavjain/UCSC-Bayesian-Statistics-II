@@ -125,7 +125,6 @@ prior$nu_0 = prior$n_0 / 2.0 # prior parameter for inverse-gamma
 prior$beta_0 = prior$n_0 * prior$s2_0 / 2.0 # prior parameter for inverse-gamma
 
 # compare prior for mu and distribution of data
-x11()
 hist(y, freq=FALSE, xlim=c(-1.0, 3.0)) # histogram of the data
 curve(dnorm(x=x, mean=prior$mu_0, sd=sqrt(prior$sig2_0)), lty=2, add=TRUE) # prior for mu
 points(y, rep(0,n), pch=1) # individual data points
@@ -143,7 +142,6 @@ post = gibbs(y=y, n_iter=1e3, init=init, prior=prior)
 head(post)
 
 library("coda")
-x11()
 plot(as.mcmc(post))
 
 summary(as.mcmc(post))
