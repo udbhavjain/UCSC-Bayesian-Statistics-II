@@ -34,7 +34,7 @@ mh = function(n, ybar, n_iter, mu_init, cand_sd) {
     ## step 1, initialize
   mu_out = numeric(n_iter) # for storing (accepted) generated draws 
   accpt = 0                # for storing number of accepted draws
-  mu_now = mu_init         # current head of Markov chain, initialised with given sample mean
+  mu_now = mu_init         # current head of Markov chain, initialised with passed value
   lg_now = lg(mu=mu_now, n=n, ybar=ybar) # current log(g(mu)), initialised with supplied Markov chain state, 
                                          # given sample size, and given sample mean
   
