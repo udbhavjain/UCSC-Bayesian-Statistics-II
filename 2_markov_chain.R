@@ -14,7 +14,6 @@ for (i in 2:n) {
   x[i] = rnorm(1, mean=x[i-1], sd=1.0)
 }
 
-x11()
 plot.ts(x)
 
 # transition matrix
@@ -99,14 +98,12 @@ for (i in 2:n) {
   x[i] = rnorm(1, mean=phi*x[i-1], sd=1.0)
 }
 
-x11()
 plot.ts(x)
 
 " The theoretical stationary distribution for this chain is normal with mean 0 and variance 1/(1−phi^2), 
   which approximately equals 1.562 for phi = -0.6. "
 
 # compare simulated and theoretical distributions
-x11()
 hist(x, freq=FALSE)
 curve(dnorm(x, mean=0.0, sd=sqrt(1.0/(1.0-phi^2))), col="red", add=TRUE)
 legend("topright", legend="theoretical stationary\ndistribution", col="red", lty=1, bty="n")
