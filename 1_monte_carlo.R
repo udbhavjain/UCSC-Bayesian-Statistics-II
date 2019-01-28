@@ -13,7 +13,6 @@ b = 1.0 / 3.0
 theta = rgamma(n=m, shape=a, rate=b)
 
 # plot the monte carlo sample distribution and the true gamma curve 
-x11()
 hist(theta, freq=FALSE)
 curve(dgamma(x=x, shape=a, rate=b), col="blue", add=TRUE)
 
@@ -88,5 +87,4 @@ y = rbinom(n=m, size=10, prob=phi)
 # marginal distribution for draws of y
 mean(y)
 
-x11()
 plot(prop.table(table(y)), ylab="P(y)", main="Marginal distribution of y")
