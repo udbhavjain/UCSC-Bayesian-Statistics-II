@@ -76,7 +76,6 @@ y = c(1.2, 1.4, -0.5, 0.3, 0.9, 2.3, 1.0, 0.1, 1.3, 1.9)
 ybar = mean(y)
 n = length(y)
 
-x11()
 hist(y, freq=FALSE, xlim=c(-1.0, 3.0)) # histogram of the data
 curve(dt(x=x, df=1), lty=2, add=TRUE) # prior for mu
 points(y, rep(0,n), pch=1) # individual data points
@@ -93,7 +92,6 @@ str(post)
 # plot Markov chain generation history (simulated values vs number of iterations)
 library("coda")
 
-x11()
 traceplot(as.mcmc(post$mu))
 
 " Acceptance rate is 12.2%, which is below 23%. Step sizes need to be reduced. "
@@ -102,7 +100,6 @@ traceplot(as.mcmc(post$mu))
 post = mh(n=n, ybar=ybar, n_iter=1e3, mu_init=0.0, cand_sd=0.05)
 post$accpt
 
-x11()
 traceplot(as.mcmc(post$mu))
 
 " Acceptance rate is 93.7%, which is higher than 50%. Step sizes need to be increased. "
@@ -119,7 +116,6 @@ traceplot(as.mcmc(post$mu))
 post = mh(n=n, ybar=ybar, n_iter=1e3, mu_init=30.0, cand_sd=0.9)
 post$accpt
 
-x11()
 traceplot(as.mcmc(post$mu))
 
 " The chain eventually hits stationary distribution. "
@@ -129,7 +125,6 @@ traceplot(as.mcmc(post$mu))
 post$mu_keep = post$mu[-c(1:100)] # discard the first 100 samples
 
 # plot density estimate of the posterior
-x11()
 plot(density(post$mu_keep, adjust=2.0), main="", xlim=c(-1.0, 3.0), xlab=expression(mu)) 
 curve(dt(x=x, df=1), lty=2, add=TRUE) # prior for mu
 points(ybar, 0, pch=19) # sample mean
